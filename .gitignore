@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+
+# Virtual environments
+.venv
+
+# Secrets - never commit real keys
+.env
+
+# Local state produced by runs (data/articles IS committed as proof of scrape)
+*.log

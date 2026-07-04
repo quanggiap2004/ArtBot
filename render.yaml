@@ -1,0 +1,10 @@
+services:
+  - type: cron
+    name: articlebots-sync
+    runtime: docker
+    plan: starter
+    region: singapore
+    schedule: "0 3 * * *"
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false

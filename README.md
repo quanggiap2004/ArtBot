@@ -59,7 +59,7 @@ The container runs one sync and exits 0.
 ## Daily job
 
 Deployed as a Render cron job (`render.yaml`), daily at 03:00 UTC.
-Job logs: <RENDER_LOGS_URL>
+Job logs: https://dashboard.render.com/cron/crn-d948mdhkh4rs73enohjg/logs
 
 ## Screenshot
 

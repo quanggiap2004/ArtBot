@@ -41,11 +41,21 @@ uv sync
 ```
 uv run python main.py                    # full sync
 uv run python scripts/create_assistant.py  # one-off, creates the assistant
+uv run python scripts/ask.py "How do I add a YouTube video?"  # spot-check
 uv run pytest                            # offline unit tests
 uv run pytest -m live                    # end-to-end test, costs a few cents
 ```
 
 `ARTICLE_LIMIT=30 uv run python main.py` caps the sync for cheap test runs.
+
+A note on testing answers: prefer `ask.py` over eyeballing the Playground.
+The Playground's UI splices citation chips into the message text, and its
+renderer sometimes prints a literal `null` where a citation marker sits
+right after a heading. That is a display bug in the web UI; the message
+itself is intact. `ask.py` prints the reply exactly as the API returns
+it, with the `Article URL:` line guaranteed by the fallback in
+`src/articlebots/citations.py`, and the live test verifies answers the
+same way.
 
 ## Docker
 

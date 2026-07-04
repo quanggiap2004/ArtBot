@@ -61,6 +61,21 @@ The container runs one sync and exits 0.
 Deployed as a Render cron job (`render.yaml`), daily at 03:00 UTC.
 Job logs: https://dashboard.render.com/cron/crn-d948mdhkh4rs73enohjg/logs
 
+The dashboard link needs a Render login, so here is what the latest run
+printed:
+
+```
+2026-07-04 04:27:29,373 INFO fetched 404 articles
+2026-07-04 04:27:43,028 INFO using vector store articlebots-kb (vs_6a48090d96d0819195d2125c8f0e28ba)
+2026-07-04 04:28:07,725 INFO store has 404 tracked files
+2026-07-04 04:28:08,106 INFO store now holds 404 files, 4782828 bytes indexed
+RESULT added=0 updated=0 skipped=404
+```
+
+The store already held every article at that point, so the run skipped
+all 404 of them. The first sync is the mirror image: added=404 updated=0
+skipped=0, followed by a few minutes of server-side indexing.
+
 ## Screenshot
 
 ![assistant answering with citations](docs/screenshot.png)
